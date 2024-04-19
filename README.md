@@ -301,6 +301,64 @@ When sending a message, you can provide a set of sentences that will be displaye
 }
 ```
 
+
+#### Html Message
+
+Add `isHtml` property to show HTML content in a text message
+
+```json
+{
+   "type":"text",
+   "author":"`me`",
+   "id":22,
+   "data":{
+      "text":"<b>HTML Content</b><ul><li>item 1</li><li>item 2</li></ul>",
+      "isHtml":true
+   }
+}
+```
+
+#### Customized Action
+
+You could define your handling logic from the payload data
+data:
+```json
+{
+   "type":"action",
+   "author":"`support`",
+   "id":23,
+   "data":{
+      "text":"Show Alert",
+      "payload":{
+         "prop1":"prop1",
+         "prop2":"Hello World from support"
+      }
+   }
+}
+``` 
+
+ In your vue:
+ ```javascript
+ //template
+ ...
+ <beautiful-chat
+      ...props
+      @action="onAction"
+    >
+....
+//script
+...
+methods: {
+	onAction($event){
+		//write your logic here
+		console.log($event.prop1);
+	    alert($event.prop2);
+	}
+}
+....
+ ```
+
+
 ### FAQ
 
 <details><summary>How to get the demo working?</summary>

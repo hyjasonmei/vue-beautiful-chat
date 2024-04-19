@@ -63,6 +63,8 @@ export default {
   },
   computed: {
     messageText() {
+      if (this.message.data.isHtml) return this.message.data.text;
+      
       const escaped = escapeGoat.escape(this.message.data.text)
 
       return Autolinker.link(this.messageStyling ? fmt(escaped) : escaped, {

@@ -32,6 +32,7 @@
       @onType="$emit('onType')"
       @edit="$emit('edit', $event)"
       @remove="$emit('remove', $event)"
+      @action="$emit('action', $event)"
     >
       <template v-slot:header>
         <slot name="header"> </slot>

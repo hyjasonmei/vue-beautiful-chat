@@ -13,6 +13,7 @@
       :colors="colors"
       :message-styling="messageStyling"
       @remove="$emit('remove', message)"
+      @action="$emit('action', $event)"
     >
       <template v-slot:user-avatar="scopedProps">
         <slot name="user-avatar" :user="scopedProps.user" :message="scopedProps.message"> </slot>

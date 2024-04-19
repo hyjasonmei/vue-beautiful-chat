@@ -56,6 +56,13 @@
       >
         <slot name="system-message-body" :message="message.data"> </slot>
       </SystemMessage>
+      <ActionMessage
+        v-if="message.type === 'action'"
+        :message="message"
+        :message-colors="messageColors"
+        :message-styling="messageStyling"
+        @action="$emit('action', $event)"
+      />
     </div>
   </div>
 </template>
@@ -67,6 +74,7 @@ import EmojiMessage from './messages/EmojiMessage.vue'
 import TypingMessage from './messages/TypingMessage.vue'
 import SystemMessage from './messages/SystemMessage.vue'
 import chatIcon from './assets/chat-icon.svg'
+import ActionMessage from './messages/ActionMessage.vue'
 
 export default {
   components: {
@@ -74,7 +82,8 @@ export default {
     FileMessage,
     EmojiMessage,
     TypingMessage,
-    SystemMessage
+    SystemMessage,
+    ActionMessage
   },
   props: {
     message: {

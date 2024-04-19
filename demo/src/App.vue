@@ -24,6 +24,7 @@
       @onType="handleOnType"
       @edit="editMessage"
       @remove="removeMessage"
+      @action="onAction"
     >
       <template v-slot:text-message-toolbox="scopedProps">
         <button
@@ -211,6 +212,11 @@ export default {
       var msg = this.messageList[m]
       msg.liked = !msg.liked
       this.$set(this.messageList, m, msg)
+    },
+    onAction($event) {
+      //write your custom logic here
+      console.log($event.prop1)
+      alert($event.prop2)
     }
   }
 }
