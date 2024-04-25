@@ -1,5 +1,5 @@
 {
-  "name": "vue-beautiful-chat",
+  "name": "hyjasonmei@vue-beautiful-chat",
   "version": "2.5.0",
   "description": "A simple and beautiful Vue chat component backend agnostic.",
   "main": "./dist/vue-beautiful-chat.umd.min.js",
