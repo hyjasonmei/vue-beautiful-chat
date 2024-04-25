@@ -1,11 +1,13 @@
 <template>
-  <div class="sc-chat-window" :class="{opened: isOpen, closed: !isOpen}">
+  <div class="sc-chat-window" :class="{opened: isOpen, closed: !isOpen, wide: isWide}">
     <Header
       v-if="showHeader"
       :title="title"
       :colors="colors"
       @close="$emit('close')"
+      @toggleWide="toggleWide()"
       @userList="handleUserListToggle"
+      :isWide="isWide"
     >
       <template>
         <slot name="header"> </slot>
@@ -128,7 +130,8 @@ export default {
   },
   data() {
     return {
-      showUserList: false
+      showUserList: false,
+      isWide: false
     }
   },
   computed: {
@@ -144,6 +147,9 @@ export default {
     },
     getSuggestions() {
       return this.messages.length > 0 ? this.messages[this.messages.length - 1].suggestions : []
+    },
+    toggleWide() {
+      this.isWide = !this.isWide 
     }
   }
 }
@@ -168,6 +174,12 @@ export default {
   animation: fadeIn;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
+  border: 1px solid #ddd;
+}
+
+.sc-chat-window.wide {
+  width: calc(100% - 120px);
+  max-width: 650px;
 }
 
 .sc-chat-window.closed {

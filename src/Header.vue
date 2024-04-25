@@ -7,6 +7,10 @@
       </div>
       <div v-else class="sc-header--title">{{ title }}</div>
     </slot>
+    <div v-if="showCloseButton" class="sc-header--wide-button" @click="$emit('toggleWide')">
+      <img v-if="!isWide" :src="wideIcon" :alt="icons.close.name" />
+      <img v-if="isWide" :src="narrowIcon" :alt="icons.close.name" />
+    </div>
     <div v-if="showCloseButton" class="sc-header--close-button" @click="$emit('close')">
       <img :src="icons.close.img" :alt="icons.close.name" />
     </div>
@@ -16,6 +20,8 @@
 <script>
 import {mapState} from './store/'
 import CloseIcon from './assets/close-icon-big.png'
+import WideIcon from './assets/wide.png'
+import NarrowIcon from './assets/narrow.png'
 
 export default {
   props: {
@@ -37,11 +43,17 @@ export default {
     colors: {
       type: Object,
       required: true
+    },
+    isWide: {
+      type: Boolean,
+      required: true
     }
   },
   data() {
     return {
-      inUserList: false
+      inUserList: false,
+      wideIcon: WideIcon,
+      narrowIcon: NarrowIcon
     }
   },
   computed: {
@@ -109,7 +121,29 @@ export default {
 .sc-header--close-button img {
   width: 100%;
   height: 100%;
-  padding: 13px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.sc-header--wide-button {
+  width: 40px;
+  align-self: center;
+  height: 40px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.sc-header--wide-button:hover {
+  box-shadow: 0px 2px 5px rgba(0.2, 0.2, 0.5, 0.1);
+}
+
+.sc-header--wide-button img {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
   box-sizing: border-box;
 }
 
