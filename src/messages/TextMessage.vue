@@ -63,8 +63,8 @@ export default {
   },
   computed: {
     messageText() {
-      if (this.message.data.isHtml) return this.message.data.text;
-      
+      if (this.message.data.isHtml) return this.message.data.text
+
       const escaped = escapeGoat.escape(this.message.data.text)
 
       return Autolinker.link(this.messageStyling ? fmt(escaped) : escaped, {
@@ -97,8 +97,20 @@ export default {
   line-height: 1.4;
   position: relative;
   -webkit-font-smoothing: subpixel-antialiased;
+  font-weight: 400;
+  font-size: 14px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.14) 0px 4px 8px) drop-shadow(rgba(0, 0, 0, 0.12) 0px 0px 2px);
+  padding: 16px 20px;
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+  }
   .sc-message--text-content {
-    white-space: pre-wrap;
+    white-space: normal;
   }
   &:hover .sc-message--toolbox {
     left: -20px;

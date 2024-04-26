@@ -22,7 +22,7 @@ export default [
   { type: 'text', author: `me`, id: 19, data: { text: `...or not?`, meta: '✓ Delivered' } },
   { type: 'system', id: 20, data: { text: 'User changed security key', meta: '04-08-2018 15:57' } },
   { type: 'text', author: `support`, id: 21, data: { text: `What about suggestions?` }, suggestions: ["Looks good!", "It's OK.", "Uhh.. Do I really have to say something?", "This suggestion is way too long for css purpose. Let's make it long... Longer, and more and more.. Never ending."] },
-  { type: 'text', author: `me`, id: 22, data: { text: "<b>HTML Content</b><ul><li>item 1</li><li>item 2</li></ul>", isHtml: true } },
+  { type: 'text', author: `me`, id: 22, data: { text: "<p><b>HTML Content</b><ul><li>item 1</li><li>item 2</li></ul></p>", isHtml: true } },
   { type: 'action', author: `support`, id: 23, data: { text: "Show Alert", payload: { prop1: 'prop1', prop2: 'Hello World from support' } } },
   { type: 'action', author: `me`, id: 24, data: { text: "<i>Show Alert 2</i>", payload: { prop1: 'prop1', prop2: 'Hello World from me' }, isHtml: true } },
 ]

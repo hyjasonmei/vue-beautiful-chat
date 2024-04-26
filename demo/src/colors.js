@@ -8,15 +8,15 @@ export default {
       bg: '#D32F2F'
     },
     messageList: {
-      bg: '#fff'
+      bg: 'rgb(242, 248, 253)'
     },
     sentMessage: {
-      bg: '#F44336',
-      text: '#fff'
+      bg: 'lightblue',
+      text: '#111'
     },
     receivedMessage: {
-      bg: '#eaeaea',
-      text: '#222222'
+      bg: 'white',
+      text: 'black'
     },
     userInput: {
       bg: '#fff',
@@ -109,6 +109,34 @@ export default {
     userList: {
       bg: '#2c3e50',
       text: '#ecf0f1'
+    }
+  },
+  az: {
+    header: {
+      bg: '#D32F2F',
+      text: '#fff'
+    },
+    launcher: {
+      bg: '#D32F2F'
+    },
+    messageList: {
+      bg: '#fff'
+    },
+    sentMessage: {
+      bg: 'lightblue',
+      text: '#fff'
+    },
+    receivedMessage: {
+      bg: '#eaeaea',
+      text: '#222222'
+    },
+    userInput: {
+      bg: '#fff',
+      text: '#212121'
+    },
+    userList: {
+      bg: '#fff',
+      text: '#212121'
     }
   }
 }

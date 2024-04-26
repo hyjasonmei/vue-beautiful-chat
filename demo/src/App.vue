@@ -86,6 +86,12 @@
         @click.prevent="setColor('dark')"
         >Dark</a
       >
+      <a
+        :style="{background: availableColors.az.launcher.bg}"
+        href="#"
+        @click.prevent="setColor('dark')"
+        >AZ</a
+      >
     </p>
     <v-dialog />
     <p class="text-center messageStyling">
@@ -127,7 +133,7 @@ export default {
       titleImageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
       messageList: messageHistory,
       newMessagesCount: 0,
-      isChatOpen: false,
+      isChatOpen: true,
       showTypingIndicator: '',
       colors: null,
       availableColors,
@@ -146,7 +152,7 @@ export default {
     }
   },
   created() {
-    this.setColor('blue')
+    this.setColor('red')
   },
   mounted() {
     this.messageList.forEach((x) => (x.liked = false))
@@ -184,8 +190,7 @@ export default {
     showStylingInfo() {
       this.$modal.show('dialog', {
         title: 'Info',
-        text:
-          'You can use *word* to <strong>boldify</strong>, /word/ to <em>emphasize</em>, _word_ to <u>underline</u>, `code` to <code>write = code;</code>, ~this~ to <del>delete</del> and ^sup^ or ¡sub¡ to write <sup>sup</sup> and <sub>sub</sub>'
+        text: 'You can use *word* to <strong>boldify</strong>, /word/ to <em>emphasize</em>, _word_ to <u>underline</u>, `code` to <code>write = code;</code>, ~this~ to <del>delete</del> and ^sup^ or ¡sub¡ to write <sup>sup</sup> and <sub>sub</sub>'
       })
     },
     messageStylingToggled(e) {

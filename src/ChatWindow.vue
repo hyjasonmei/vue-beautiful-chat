@@ -149,7 +149,7 @@ export default {
       return this.messages.length > 0 ? this.messages[this.messages.length - 1].suggestions : []
     },
     toggleWide() {
-      this.isWide = !this.isWide 
+      this.isWide = !this.isWide
     }
   }
 }
@@ -170,7 +170,8 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 10px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system,
+    BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
   animation: fadeIn;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
