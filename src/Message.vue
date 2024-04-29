@@ -18,6 +18,7 @@
         :message-colors="messageColors"
         :message-styling="messageStyling"
         @remove="$emit('remove')"
+        @action="$emit('action', $event)"
       >
         <template v-slot:default="scopedProps">
           <slot

@@ -219,6 +219,7 @@ export default {
       this.$set(this.messageList, m, msg)
     },
     onAction($event) {
+      console.log($event);
       //write your custom logic here
       console.log($event.prop1)
       alert($event.prop2)

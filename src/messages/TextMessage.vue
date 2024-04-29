@@ -27,6 +27,27 @@
         edited
       </p>
     </slot>
+    <div v-if="message.data.refs && message.data.refs.length > 0">
+      <div class="references_header">{{ message.data.refs.length }} references</div>
+      <div aria-label="citations-container" class="citations">
+        <div role="list">
+          <div role="listitem" v-for="(ref, idx) of message.data.refs" :key="idx">
+            <span
+              role="button"
+              aria-controls="citationPanel"
+              tabindex="0"
+              :title="ref.title"
+              aria-label="citation 0"
+              class="citationIndex"
+              @click="$emit('action', ref)"
+            >
+              <div class="citationIndex">{{ idx + 1 }}</div>
+              {{ ref.title }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -101,10 +122,10 @@ export default {
   font-size: 14px;
   filter: drop-shadow(rgba(0, 0, 0, 0.14) 0px 4px 8px) drop-shadow(rgba(0, 0, 0, 0.12) 0px 0px 2px);
   padding: 16px 20px;
+  overflow-wrap:anywhere;
+
   p {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
@@ -157,9 +178,49 @@ export default {
   color: #263238;
   background-color: #f4f7f9;
   margin-right: 40px;
+  max-width: calc(100%);
 }
 
 a.chatLink {
   color: inherit !important;
+}
+
+.references_header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: darkgray;
+}
+
+.citations span {
+  margin: 7px 0px;
+  line-height: 25px;
+  padding: 0px 4px;
+  color: rgb(0, 107, 189);
+  display: block;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  border: 0.5px solid rgb(209, 209, 209);
+  border-radius: 4px;
+  text-overflow: ellipsis;
+  width: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.citations span:hover {
+  text-decoration: underline;
+}
+
+.citationIndex {
+  border-radius: 4px;
+  color: rgb(66, 66, 66);
+  display: inline-flex;
+  border: 0.5px solid rgb(209, 209, 209);
+  margin: 2px 5px;
+  padding: 1px 4px;
+  line-height: 12px;
+  font-size: 12px;
 }
 </style>
