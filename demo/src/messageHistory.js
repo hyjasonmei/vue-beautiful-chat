@@ -1,5 +1,8 @@
 export default [
-  { type: 'text', author: `me`, id: 0, data: { text: `Why don't they have salsa on the table?` } },
+  { type: 'text', author: `me`, id: 0, data: { text: `Why don't they have salsa on the table?`, 
+    isShowLike: true,
+    like: 0
+  } },
   { type: 'text', author: `mattmezza`, id: 1, data: { text: `What do you need salsa for?` } },
   { type: 'text', author: `me`, id: 2, data: { text: `Salsa is now the number one condiment in America.` } },
   { type: 'text', author: `mattmezza`, id: 3, data: { text: `You know why? Because people like to say 'salsa.' 'Excuse me, do you have salsa?' 'We need more salsa.' 'Where is the salsa? No salsa?'` } },
@@ -22,16 +25,25 @@ export default [
   { type: 'text', author: `me`, id: 19, data: { text: `...or not?`, meta: '✓ Delivered' } },
   { type: 'system', id: 20, data: { text: 'User changed security key', meta: '04-08-2018 15:57' } },
   { type: 'text', author: `support`, id: 21, data: { text: `What about suggestions?` }, suggestions: ["Looks good!", "It's OK.", "Uhh.. Do I really have to say something?", "This suggestion is way too long for css purpose. Let's make it long... Longer, and more and more.. Never ending."] },
-  { type: 'text', author: `support`, id: 22, data: { 
-    text: "<p><b>HTML Content</b><ul><li>item 1</li><li>item 2</li></ul></p>", 
-    refs: [{key: 0, title: 'aaa', content: 'aaa bbb ccc'}, {key: 1, title: 'bbb', content: 'aaa bbb ccc'}],
-    isHtml: true } },
-    { type: 'text', author: `support`, id: 22, data: { 
-      text: "<p>To create an AWS account, you need to follow these steps:</p>\n<ol>\n<li>Get approval from your functional head, such as xxxxxx. If you're unsure who your functional head is, please refer to <a href=\"https://xxx \" target=\"_blank\" rel=\"noopener noreferrer\">xxxx</a> <sup>[doc0]</sup>.</li>\n<li>Read the InfoSec policies to understand the security guidelines. You can find more information on the <a href=\"https://xxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">Security Suggestions for using generative AI</a> page <sup>[doc0]</sup>.</li>\n<li>Create an external distribution list (DL) on JARVIS using the instructions provided on the <a href=\"https://xxxxxx/\" target=\"_blank\" rel=\"noopener noreferrer\">Create Distribution List</a> page. Make sure to use the \"@xxxxx.com\" email domain and add xxxx Chxxxang (<a href=\"mailto:xxxxx@xxxxxx.com\">xxxxx@xxxxxxxxxxxxxx.com</a>) to the DL. If you need to create multiple accounts, create multiple external DLs <sup>[doc0]</sup>.</li>\n<li>Notify the cloud admin by sending an email to the DL \"All of Trend Corp IS Cloud Admins\" with the subject \"AWS Account Creation - Your Service or Team Name\" and provide the required information mentioned in the email content <sup>[doc0]</sup>.</li>\n</ol>\n<p>Please note that the account creation process will be done by the AWS admin, who will create the account and provide you with the account information <sup>[doc0]</sup>.</p>\n<p>(<em>Source: <a href=\"https://xxxxxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">xxxxxxxxx Account Creation</a></em>)</p>", 
-      refs: [{key: 0, title: 'AWS_Account_Creation.md - Part 1', content: 'AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1'}],
-      isHtml: true } },
-      { type: 'text', author: `me`, id: 22, data: { 
-        text: "<p>To create an AWS account, you need to follow these steps:</p>\n<ol>\n<li>Get approval from your functional head, such as xxxxxx. If you're unsure who your functional head is, please refer to <a href=\"https://xxx \" target=\"_blank\" rel=\"noopener noreferrer\">xxxx</a> <sup>[doc0]</sup>.</li>\n<li>Read the InfoSec policies to understand the security guidelines. You can find more information on the <a href=\"https://xxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">Security Suggestions for using generative AI</a> page <sup>[doc0]</sup>.</li>\n<li>Create an external distribution list (DL) on JARVIS using the instructions provided on the <a href=\"https://xxxxxx/\" target=\"_blank\" rel=\"noopener noreferrer\">Create Distribution List</a> page. Make sure to use the \"@xxxxx.com\" email domain and add xxxx Chxxxang (<a href=\"mailto:xxxxx@xxxxxx.com\">xxxxx@xxxxxxxxxxxxxx.com</a>) to the DL. If you need to create multiple accounts, create multiple external DLs <sup>[doc0]</sup>.</li>\n<li>Notify the cloud admin by sending an email to the DL \"All of Trend Corp IS Cloud Admins\" with the subject \"AWS Account Creation - Your Service or Team Name\" and provide the required information mentioned in the email content <sup>[doc0]</sup>.</li>\n</ol>\n<p>Please note that the account creation process will be done by the AWS admin, who will create the account and provide you with the account information <sup>[doc0]</sup>.</p>\n<p>(<em>Source: <a href=\"https://xxxxxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">xxxxxxxxx Account Creation</a></em>)</p>", 
-        refs: [{key: 0, title: 'AWS_Account_Creation.md - Part 1', content: 'AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1'}],
-        isHtml: true } },
+  {
+    type: 'text', author: `support`, id: 22, data: {
+      text: "<p><b>HTML Content</b><ul><li>item 1</li><li>item 2</li></ul></p>",
+      refs: [{ key: 0, title: 'aaa', content: 'aaa bbb ccc' }, { key: 1, title: 'bbb', content: 'aaa bbb ccc' }],
+      isHtml: true
+    }
+  },
+  {
+    type: 'text', author: `support`, id: 22, data: {
+      text: "<p>To create an AWS account, you need to follow these steps:</p>\n<ol>\n<li>Get approval from your functional head, such as xxxxxx. If you're unsure who your functional head is, please refer to <a href=\"https://xxx \" target=\"_blank\" rel=\"noopener noreferrer\">xxxx</a> <sup>[doc0]</sup>.</li>\n<li>Read the InfoSec policies to understand the security guidelines. You can find more information on the <a href=\"https://xxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">Security Suggestions for using generative AI</a> page <sup>[doc0]</sup>.</li>\n<li>Create an external distribution list (DL) on JARVIS using the instructions provided on the <a href=\"https://xxxxxx/\" target=\"_blank\" rel=\"noopener noreferrer\">Create Distribution List</a> page. Make sure to use the \"@xxxxx.com\" email domain and add xxxx Chxxxang (<a href=\"mailto:xxxxx@xxxxxx.com\">xxxxx@xxxxxxxxxxxxxx.com</a>) to the DL. If you need to create multiple accounts, create multiple external DLs <sup>[doc0]</sup>.</li>\n<li>Notify the cloud admin by sending an email to the DL \"All of Trend Corp IS Cloud Admins\" with the subject \"AWS Account Creation - Your Service or Team Name\" and provide the required information mentioned in the email content <sup>[doc0]</sup>.</li>\n</ol>\n<p>Please note that the account creation process will be done by the AWS admin, who will create the account and provide you with the account information <sup>[doc0]</sup>.</p>\n<p>(<em>Source: <a href=\"https://xxxxxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">xxxxxxxxx Account Creation</a></em>)</p>",
+      refs: [{ key: 0, title: 'AWS_Account_Creation.md - Part 1', content: 'AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1' }],
+      isHtml: true
+    }
+  },
+  {
+    type: 'text', author: `me`, id: 22, data: {
+      text: "<p>To create an AWS account, you need to follow these steps:</p>\n<ol>\n<li>Get approval from your functional head, such as xxxxxx. If you're unsure who your functional head is, please refer to <a href=\"https://xxx \" target=\"_blank\" rel=\"noopener noreferrer\">xxxx</a> <sup>[doc0]</sup>.</li>\n<li>Read the InfoSec policies to understand the security guidelines. You can find more information on the <a href=\"https://xxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">Security Suggestions for using generative AI</a> page <sup>[doc0]</sup>.</li>\n<li>Create an external distribution list (DL) on JARVIS using the instructions provided on the <a href=\"https://xxxxxx/\" target=\"_blank\" rel=\"noopener noreferrer\">Create Distribution List</a> page. Make sure to use the \"@xxxxx.com\" email domain and add xxxx Chxxxang (<a href=\"mailto:xxxxx@xxxxxx.com\">xxxxx@xxxxxxxxxxxxxx.com</a>) to the DL. If you need to create multiple accounts, create multiple external DLs <sup>[doc0]</sup>.</li>\n<li>Notify the cloud admin by sending an email to the DL \"All of Trend Corp IS Cloud Admins\" with the subject \"AWS Account Creation - Your Service or Team Name\" and provide the required information mentioned in the email content <sup>[doc0]</sup>.</li>\n</ol>\n<p>Please note that the account creation process will be done by the AWS admin, who will create the account and provide you with the account information <sup>[doc0]</sup>.</p>\n<p>(<em>Source: <a href=\"https://xxxxxxxx\" target=\"_blank\" rel=\"noopener noreferrer\">xxxxxxxxx Account Creation</a></em>)</p>",
+      refs: [{ key: 0, title: 'AWS_Account_Creation.md - Part 1', content: 'AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1AWS_Account_Creation.md - Part 1' }],
+      isHtml: true
+    }
+  },
 ]

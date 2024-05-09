@@ -15,6 +15,16 @@
         <slot name="text-message-toolbox" :message="message" :me="me"> </slot>
       </div>
     </template>
+    <div class="likeBar" v-if="message.data.isShowLike">
+      <a role="button" @click="$emit('action', {source: 'like', data: message})">
+        <Like :isFull="true" v-if="message.data.like === 1" />
+        <Like :isFull="false" v-if="message.data.like !== 1" />
+      </a>
+      <a role="button" @click="$emit('action', {source: 'dislike', data: message})">
+        <Dislike :isFull="true" v-if="message.data.like === -1" />
+        <Dislike :isFull="false" v-if="message.data.like !== -1" />
+      </a>
+    </div>
     <slot :message="message" :messageText="messageText" :messageColors="messageColors" :me="me">
       <p class="sc-message--text-content" v-html="messageText"></p>
       <p v-if="message.data.meta" class="sc-message--meta" :style="{color: messageColors.color}">
@@ -39,7 +49,7 @@
               :title="ref.title"
               aria-label="citation 0"
               class="citationIndex"
-              @click="$emit('action', ref)"
+              @click="$emit('action', {source: 'ref', data: ref})"
             >
               <div class="citationIndex">{{ idx + 1 }}</div>
               {{ ref.title }}</span
@@ -59,6 +69,8 @@ import IconCross from './../components/icons/IconCross.vue'
 import escapeGoat from 'escape-goat'
 import Autolinker from 'autolinker'
 import store from '../store/'
+import Like from '../icons/Like.vue'
+import Dislike from '../icons/Dislike.vue'
 
 const fmt = require('msgdown')
 
@@ -66,7 +78,9 @@ export default {
   components: {
     IconBase,
     IconCross,
-    IconEdit
+    IconEdit,
+    Like,
+    Dislike
   },
   props: {
     message: {
@@ -122,7 +136,7 @@ export default {
   font-size: 14px;
   filter: drop-shadow(rgba(0, 0, 0, 0.14) 0px 4px 8px) drop-shadow(rgba(0, 0, 0, 0.12) 0px 0px 2px);
   padding: 16px 20px;
-  overflow-wrap:anywhere;
+  overflow-wrap: anywhere;
 
   p {
     display: block;
@@ -222,5 +236,15 @@ a.chatLink {
   padding: 1px 4px;
   line-height: 12px;
   font-size: 12px;
+}
+
+.likeBar {
+  text-align: right;
+
+  a {
+    cursor: pointer;
+    padding: 2px;
+    margin: 0;
+  }
 }
 </style>
