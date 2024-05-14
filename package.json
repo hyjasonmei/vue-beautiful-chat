@@ -1,6 +1,6 @@
 {
   "name": "@hyjasonmei/vue-beautiful-chat",
-  "version": "2.5.2",
+  "version": "2.5.3",
   "description": "A simple and beautiful Vue chat component backend agnostic.",
   "main": "./dist/vue-beautiful-chat.umd.min.js",
   "repository": "https://github.com/mattmezza/vue-beautiful-chat.git",
@@ -23,7 +23,8 @@
     "kind-of": "6.0.3",
     "minimist": "1.2.3",
     "msgdown": "^1.0.2",
-    "v-tooltip": "^2.0.1"
+    "v-tooltip": "^2.0.1",
+    "vue-star-rating": "^1.7.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.3",

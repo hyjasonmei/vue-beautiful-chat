@@ -37,6 +37,16 @@
         edited
       </p>
     </slot>
+    <div v-if="message.data.isShowRating" class="references_header">
+      <div>{{ ratingLabel }}</div>
+      <star-rating
+        @rating-selected="setRating"
+        :border-width="0.5"
+        :show-rating="false"
+        :star-size="15"
+        v-model="rating"
+      ></star-rating>
+    </div>
     <div v-if="message.data.refs && message.data.refs.length > 0">
       <div class="references_header">{{ message.data.refs.length }} references</div>
       <div aria-label="citations-container" class="citations">
@@ -71,6 +81,7 @@ import Autolinker from 'autolinker'
 import store from '../store/'
 import Like from '../icons/Like.vue'
 import Dislike from '../icons/Dislike.vue'
+import StarRating from 'vue-star-rating'
 
 const fmt = require('msgdown')
 
@@ -80,7 +91,8 @@ export default {
     IconCross,
     IconEdit,
     Like,
-    Dislike
+    Dislike,
+    StarRating
   },
   props: {
     message: {
@@ -96,7 +108,15 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      rating: 0
+    }
+  },
   computed: {
+    ratingLabel() {
+      return this.message.data.ratingLabel ? this.message.data.ratingLabel : 'Rate this message'
+    },
     messageText() {
       if (this.message.data.isHtml) return this.message.data.text
 
@@ -118,6 +138,10 @@ export default {
   methods: {
     edit() {
       store.setState('editMessage', this.message)
+    },
+    setRating: function (rating) {
+      this.rating = rating
+      this.$emit('action', {source: 'rating', rating, data: this.message})
     }
   }
 }
@@ -200,8 +224,8 @@ a.chatLink {
 }
 
 .references_header {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
   color: darkgray;
 }
 
